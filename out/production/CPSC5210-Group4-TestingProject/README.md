@@ -9,12 +9,6 @@ It is played with two-sided (black and white) chips, also called discs, on a boa
 
 There is supposedly a slot machine game that is revealed when pressing Select + A at the main menu screen (the word slot will appear atop the screen and the game is said to start after you complete a two player game), but some users have reported that nothing happens after the word "slot" shows up.
 
-# About This Project
-
-The purpose of this project is to practice testing and debugging techniques for our own educational purposes.
-
-Original code created by harirakul can be found via this link: https://github.com/harirakul/Othello/tree/master
-
 # Prerequisites
 
     Must have JDK installed to run the program.
