@@ -9,17 +9,17 @@ It is played with two-sided (black and white) chips, also called discs, on a boa
 
 There is supposedly a slot machine game that is revealed when pressing Select + A at the main menu screen (the word slot will appear atop the screen and the game is said to start after you complete a two player game), but some users have reported that nothing happens after the word "slot" shows up.
 
-#Prerequisites
+# Prerequisites
 
     Must have JDK installed to run the program.
 
-#Run Project
+# Run Project
 
 1. Import Project.
 2. Navigate to Main.java - Othello -> src -> Main.java
 3. Run 'Main.main()' or Simply click on Play Button.
 
-#Build for Testing
+# Build for Testing
 
 
 1. Import Project.
@@ -28,7 +28,7 @@ There is supposedly a slot machine game that is revealed when pressing Select + 
 4. Select Maven and Add library : org.junit.jupiter:junit-jupiter:5.11.1
 5. Rebuild the project.
 
-#Run Test
+# Run Test
 
 1. Click on Edit Configurations
 2. Add Board Class.
