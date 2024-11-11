@@ -13,8 +13,8 @@ public class Board{
     private ArrayList<int[][]> history; // Used to undo moves.
 
     private int[][] offsets = {
-        {0, 1}, {1, 0}, {0, -1}, {-1, 0},   // Adjacent Squares
-        {1, 1}, {1, -1}, {-1, -1}, {-1, 1}  // Diagonal Squares
+            {0, 1}, {1, 0}, {0, -1}, {-1, 0},   // Adjacent Squares
+            {1, 1}, {1, -1}, {-1, -1}, {-1, 1}  // Diagonal Squares
     };
 
     private static final String ANSI_RED = "\u001B[31m";
@@ -245,11 +245,11 @@ public class Board{
                         }
                         if (inBounds(newRow, newCol) && grid[newRow][newCol] == turn){
                             if ((newRow == i && Math.abs(newCol - j) > 1) || // In the same row?
-                                (newCol == j && Math.abs(newRow - i) > 1) || // In the same col?
-                                (Math.abs(newCol - j) > 1 && Math.abs(newRow - i) > 1)){ //Diagonal?
-                                    legalMoves.add(new Integer[]{i, j});
-                                    break;  // Now consider the next square.
-                            } 
+                                    (newCol == j && Math.abs(newRow - i) > 1) || // In the same col?
+                                    (Math.abs(newCol - j) > 1 && Math.abs(newRow - i) > 1)){ //Diagonal?
+                                legalMoves.add(new Integer[]{i, j});
+                                break;  // Now consider the next square.
+                            }
                         }
                     }
                 }
@@ -292,10 +292,10 @@ public class Board{
                     count++;
                 }
                 if (inBounds(newRow, newCol) && grid[newRow][newCol] == turn){
-                        // Flippable line identified, now backtrack, and flip all opponent coins
-                        for (int i = 1; i < count; i++){
-                            this.flip(newRow - offset[0]*i, newCol - offset[1]*i);
-                        }
+                    // Flippable line identified, now backtrack, and flip all opponent coins
+                    for (int i = 1; i < count; i++){
+                        this.flip(newRow - offset[0]*i, newCol - offset[1]*i);
+                    }
                 }
             }
             turn *= -1;
@@ -361,7 +361,7 @@ public class Board{
         for (int i = 0; i < 10; i++){
             out += ANSI_YELLOW + i + ANSI_RESET + "  ";
             for (int j = 0; j < 10; j++){
-                
+
                 out += "| ";
 
                 if (grid[i][j] == 1){
@@ -375,7 +375,7 @@ public class Board{
                 }
             }
             out += "|";
-            
+
             out += "\n   -----------------------------------------\n";
         }
         return out;
