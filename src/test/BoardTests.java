@@ -9,25 +9,25 @@ public class BoardTests {
     @Test
     void inBoundsTest() {
         Board board = new Board();
-        Assertions.assertTrue(board.inBounds(5, 5));
+        Assertions.assertTrue(board.inBounds(5, 5)); // Test a position within bounds.
     }
 
     @Test
     void inBoundsLowerBoundTest() {
         Board board = new Board();
-        Assertions.assertTrue(board.inBounds(0, 0));
+        Assertions.assertTrue(board.inBounds(0, 0)); // Test the lower-left corner is within bounds.
     }
 
     @Test
     void inBoundsUpperBoundTest() {
         Board board = new Board();
-        Assertions.assertTrue(board.inBounds(9, 9));
+        Assertions.assertTrue(board.inBounds(9, 9)); // Test the upper-right corner is within bounds.
     }
 
     @Test
     void inBoundsOutOfLowerBoundTest1() {
         Board board = new Board();
-        Assertions.assertFalse(board.inBounds(9, -1));
+        Assertions.assertFalse(board.inBounds(9, -1)); // Test out of bounds.
     }
 
     @Test
@@ -63,19 +63,19 @@ public class BoardTests {
     @Test
     void isEmptyTest() {
         Board board = new Board();
-        Assertions.assertTrue(board.isEmpty(0,0));
+        Assertions.assertTrue(board.isEmpty(0,0)); // Check if empty.
     }
 
     @Test
     void isEmptyNotEmptyTest() {
         Board board = new Board();
-        Assertions.assertFalse(board.isEmpty(4,4));
+        Assertions.assertFalse(board.isEmpty(4,4)); // Check if it's not empty.
     }
 
     @Test
     void isFilledTest() {
         Board board = new Board();
-        Assertions.assertFalse(board.isFilled());
+        Assertions.assertFalse(board.isFilled()); //Check if the board is fully filled
     }
 
     @Test
@@ -99,7 +99,7 @@ public class BoardTests {
     @Test
     void setPieceTest() {
         Board board = new Board();
-        board.setPiece(1, 2, 2); // Set black piece at (2, 2)
+        board.setPiece(1, 2, 2); // Set black piece
         Assertions.assertEquals(1, board.getPiece(2, 2));
     }
 
@@ -183,13 +183,12 @@ public class BoardTests {
     @Test
     void gameOverBlackWinsTest() {
         Board board = new Board();
-        // Fill the board in a way that black wins
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 board.setPiece(1, i, j);
             }
         }
-        Assertions.assertEquals(1, board.gameOver());
+        Assertions.assertEquals(1, board.gameOver()); // Fill such that black wins
     }
 
     @Test
@@ -207,7 +206,7 @@ public class BoardTests {
     @Test
     void getLegalMovesInitialTest() {
         Board board = new Board();
-        Assertions.assertFalse(board.getLegalMoves().isEmpty()); // Should have legal moves at start
+        Assertions.assertFalse(board.getLegalMoves().isEmpty()); // Check legal moves at start
     }
 
     @Test
@@ -243,7 +242,7 @@ public class BoardTests {
         board.playMove(3, 4); // Make a move
         board.reset(); // Reset the board
         Assertions.assertEquals(0, board.getPiece(3, 4)); // The piece should be removed
-        Assertions.assertEquals(1, board.getPiece(4, 5)); // Initial black piece should still exist
+        Assertions.assertEquals(1, board.getPiece(4, 5)); // Initial piece should still exist
     }
 
     @Test
@@ -272,16 +271,9 @@ public class BoardTests {
     @Test
     void undoAfterSavePositionTest() {
         Board board = new Board();
-
-        // Play a valid move and then undo it
-        board.playMove(3, 4);
-
-        // Check that the move was played
-        Assertions.assertEquals(1, board.getPiece(3, 4)); // Black piece placed
-
-        // Undo the move
-        board.undo();
-
+        board.playMove(3, 4); // Play a valid move and then undo it
+        Assertions.assertEquals(1, board.getPiece(3, 4)); // Check that the move was played
+        board.undo(); // Undo the move
         // Verify that the board reverted to the initial state
         Assertions.assertEquals(0, board.getPiece(3, 4)); // The spot should be empty
         Assertions.assertEquals(-1, board.getPiece(4, 4)); // White piece restored
@@ -292,7 +284,7 @@ public class BoardTests {
     @Test
     void undoOnInitialStateTest() {
         Board board = new Board();
-        Assertions.assertThrows(IndexOutOfBoundsException.class, board::undo);
+        Assertions.assertThrows(IndexOutOfBoundsException.class, board::undo); // Verify that undoing on the initial board state throws an IndexOutOfBoundsException
     }
 
 
