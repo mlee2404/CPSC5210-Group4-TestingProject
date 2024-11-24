@@ -1,5 +1,6 @@
 package src.test;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import src.othello.GUI;
@@ -23,31 +24,31 @@ class TileTests {
 
     @Test
     void getRow() {
-        assertEquals(2, tile.getRow());
+        Assertions.assertEquals(2, tile.getRow());
     }
 
     @Test
     void getCol() {
-        assertEquals(3, tile.getCol());
+        Assertions.assertEquals(3, tile.getCol());
     }
 
     @Test
     void setPiece() {
         tile.setPiece(1);  // Set black piece
         Icon icon = tile.getIcon();
-        assertNotNull(icon);
+        Assertions.assertNotNull(icon);
 
         tile.setPiece(-1);  // Set white piece
         Icon iconWhite = tile.getIcon();
-        assertNotNull(iconWhite);
+        Assertions.assertNotNull(iconWhite);
     }
 
     @Test
     void setHighlighted() {
         tile.setHighlighted(true);  // Highlight tile
-        assertEquals(Color.WHITE, ((LineBorder) tile.getBorder()).getLineColor());
+        Assertions.assertEquals(Color.WHITE, ((LineBorder) tile.getBorder()).getLineColor());
 
         tile.setHighlighted(false);  // Remove highlight
-        assertEquals(Color.BLACK, ((LineBorder) tile.getBorder()).getLineColor());
+        Assertions.assertEquals(Color.BLACK, ((LineBorder) tile.getBorder()).getLineColor());
     }
 }

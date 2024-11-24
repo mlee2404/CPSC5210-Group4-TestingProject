@@ -1,5 +1,6 @@
 package src.test;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import src.othello.GUI;
@@ -21,21 +22,21 @@ class GUITests {
     @Test
     void setupMenu() {
         JMenuBar menuBar = gui.getJMenuBar();
-        assertNotNull(menuBar);
-        assertEquals(3, menuBar.getMenuCount());
+        Assertions.assertNotNull(menuBar);
+        Assertions.assertEquals(3, menuBar.getMenuCount());
 
         JMenu fileMenu = menuBar.getMenu(0);
-        assertEquals("File", fileMenu.getText());
+        Assertions.assertEquals("File", fileMenu.getText());
 
         JMenuItem quitItem = fileMenu.getItem(1);
-        assertEquals("Quit", quitItem.getText());
+        Assertions.assertEquals("Quit", quitItem.getText());
     }
 
     @Test
     void getColor() {
         Color defaultColor = gui.getColor();
-        assertNotNull(defaultColor);
-        assertEquals(new Color(45, 174, 82), defaultColor);
+        Assertions.assertNotNull(defaultColor);
+        Assertions.assertEquals(new Color(45, 174, 82), defaultColor);
     }
 
     @Test
@@ -43,10 +44,10 @@ class GUITests {
         gui.refreshGrid();
 
         JPanel buttonPanel = (JPanel) gui.getContentPane().getComponent(0);
-        assertEquals(100, buttonPanel.getComponentCount());
+        Assertions.assertEquals(100, buttonPanel.getComponentCount());
 
         Component firstTile = buttonPanel.getComponent(0);
-        assertTrue(firstTile instanceof JButton);
+        Assertions.assertTrue(firstTile instanceof JButton);
     }
 
     @Test
@@ -54,7 +55,7 @@ class GUITests {
         gui.engineMove();
 
         JPanel buttonPanel = (JPanel) gui.getContentPane().getComponent(0);
-        assertEquals(100, buttonPanel.getComponentCount());
+        Assertions.assertEquals(100, buttonPanel.getComponentCount());
     }
 
     @Test
@@ -63,7 +64,7 @@ class GUITests {
 
         JPanel buttonPanel = (JPanel) gui.getContentPane().getComponent(0);
         JButton tile = (JButton) buttonPanel.getComponent(45);  // Row 4, Column 5 -> 45th index
-        assertNotNull(tile);
+        Assertions.assertNotNull(tile);
     }
 
     @Test
@@ -71,13 +72,13 @@ class GUITests {
         gui.simulate();
 
         JPanel buttonPanel = (JPanel) gui.getContentPane().getComponent(0);
-        assertEquals(100, buttonPanel.getComponentCount());
+        Assertions.assertEquals(100, buttonPanel.getComponentCount());
     }
 
     @Test
     void run() {
         gui.run();
-        assertTrue(gui.isVisible());
+        Assertions.assertTrue(gui.isVisible());
     }
 
     @Test
@@ -87,6 +88,6 @@ class GUITests {
         JMenuItem resetItem = gameMenu.getItem(0);  // Reset menu item
 
         resetItem.doClick();  // Simulate clicking on the reset menu item
-        assertNotNull(gui);
+        Assertions.assertNotNull(gui);
     }
 }

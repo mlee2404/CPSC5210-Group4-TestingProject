@@ -132,6 +132,18 @@ public class BoardTests {
     }
 
     @Test
+    void incrementTurnNoMoreMovesTest() {
+        Board board = new Board();
+        for (int i=0; i< 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                board.setPiece(1, i, j);
+            }
+        }
+        board.incrementTurn();
+        Assertions.assertEquals(1, board.getTurn());
+    }
+
+    @Test
     void isSideTrueTest() {
         Board board = new Board();
         Assertions.assertTrue(board.isSide(0, 5)); // Top edge
@@ -189,6 +201,18 @@ public class BoardTests {
             }
         }
         Assertions.assertEquals(1, board.gameOver()); // Fill such that black wins
+    }
+
+    // Assuming a winning scenario
+    @Test
+    void gameOverWhiteWinsTest() {
+        Board board = new Board();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                board.setPiece(-1, i, j);
+            }
+        }
+        Assertions.assertEquals(-1, board.gameOver()); // Fill such that white wins
     }
 
     @Test
