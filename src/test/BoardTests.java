@@ -279,13 +279,10 @@ public class BoardTests {
         Assertions.assertEquals(-1, board.getPiece(4, 4)); // White piece restored
         Assertions.assertEquals(1, board.getTurn()); // Turn reverted back to black
     }
-
-
+    
     @Test
     void undoOnInitialStateTest() {
         Board board = new Board();
         Assertions.assertThrows(IndexOutOfBoundsException.class, board::undo); // Verify that undoing on the initial board state throws an IndexOutOfBoundsException
     }
-
-
 }
