@@ -3,7 +3,7 @@
 # Usage: ./regressionTest.sh recipient_email@example.com
 EMAIL=$1
 
-# Ensure EMAIL_USER and EMAIL_PASS are set
+# To Ensure EMAIL_USER and EMAIL_PASS are assigned
 if [ -z "$EMAIL_USER" ]; then
   echo "Error: EMAIL_USER environment variable is not set."
   exit 1
@@ -14,7 +14,7 @@ if [ -z "$EMAIL_PASS" ]; then
   exit 1
 fi
 
-# Set Project Root (assumes script is run from the project root)
+# Set Project Root 
 PROJECT_ROOT=$(pwd)
 
 # Set CLASSPATH relative to the project directory
