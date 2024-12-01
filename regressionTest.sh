@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Usage: ./regressionTest.sh recipient_email@example.com
-EMAIL=$1
+EMAIL=$@
 
 # Ensure EMAIL_USER and EMAIL_PASS are set
 if [ -z "$EMAIL_USER" ]; then
@@ -22,7 +22,7 @@ export CLASSPATH="$PROJECT_ROOT/out/production/CPSC5210-Group4-TestingProject:$P
 
 # Compile source files
 echo "Compiling source files..."
-javac -cp "$CLASSPATH" \
+javac --release 11 -cp "$CLASSPATH" \
   -d "$PROJECT_ROOT/out/production/CPSC5210-Group4-TestingProject" \
   "$PROJECT_ROOT/src/othello/"*.java "$PROJECT_ROOT/src/Test/"*.java > build.log 2>&1
 if [ $? -ne 0 ]; then
@@ -36,7 +36,6 @@ echo "Running all tests..."
 java -cp "$CLASSPATH" org.junit.platform.console.ConsoleLauncher --scan-classpath > test.log 2>&1
 if [ $? -ne 0 ]; then
   echo "=== Test Execution Failed ==="
-  exit 1
 fi
 
 # Extract concise summary
