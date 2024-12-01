@@ -193,7 +193,7 @@ public class BoardTests {
 
     // Assuming a winning scenario
     @Test
-    void gameOverBlackWinsTest() {
+    void gameOverBlackWinsTest1() {
         Board board = new Board();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -201,6 +201,18 @@ public class BoardTests {
             }
         }
         Assertions.assertEquals(1, board.gameOver()); // Fill such that black wins
+    }
+
+    // Assuming a winning scenario
+    @Test
+    void gameOverBlackWinsTest2() {
+        Board board = new Board();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 10; j++) {
+                board.setPiece(1, i, j);
+            }
+        }
+        Assertions.assertEquals(1, board.gameOver()); // Cover most of the board such that black wins
     }
 
     // Assuming a winning scenario
@@ -213,6 +225,18 @@ public class BoardTests {
             }
         }
         Assertions.assertEquals(-1, board.gameOver()); // Fill such that white wins
+    }
+
+    // Assuming a winning scenario
+    @Test
+    void gameOverWhiteWinsTest2() {
+        Board board = new Board();
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 10; j++) {
+                board.setPiece(-1, i, j);
+            }
+        }
+        Assertions.assertEquals(-1, board.gameOver()); // Cover most of the board such that white wins
     }
 
     @Test
@@ -308,5 +332,11 @@ public class BoardTests {
     void undoOnInitialStateTest() {
         Board board = new Board();
         Assertions.assertThrows(IndexOutOfBoundsException.class, board::undo); // Verify that undoing on the initial board state throws an IndexOutOfBoundsException
+    }
+
+    @Test
+    void toStringTest() {
+        Board board = new Board();
+        Assertions.assertNotNull(board.toString()); // Verify that a string is returned
     }
 }

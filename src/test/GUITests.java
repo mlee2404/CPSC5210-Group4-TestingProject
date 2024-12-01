@@ -59,12 +59,16 @@ class GUITests {
     }
 
     @Test
-    void onClick() {
-        gui.onClick(4, 5);
+    void onClickValidMoves() {
+        for (int i=0; i< 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                gui.onClick(i, j);
+            }
+        }
 
         JPanel buttonPanel = (JPanel) gui.getContentPane().getComponent(0);
         JButton tile = (JButton) buttonPanel.getComponent(45);  // Row 4, Column 5 -> 45th index
-        Assertions.assertNotNull(tile);
+        Assertions.assertTrue(tile.isEnabled());
     }
 
     @Test
