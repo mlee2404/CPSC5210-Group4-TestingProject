@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Usage: ./regressionTest.sh recipient_email@example.com
-EMAIL=$@
+EMAIL=$1
 
 # Ensure EMAIL_USER and EMAIL_PASS are set
 if [ -z "$EMAIL_USER" ]; then
