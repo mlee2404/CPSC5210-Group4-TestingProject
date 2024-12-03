@@ -217,7 +217,7 @@ public class BoardTests {
 
     // Assuming a winning scenario
     @Test
-    void gameOverWhiteWinsTest() {
+    void gameOverWhiteWinsTest1() {
         Board board = new Board();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
@@ -322,6 +322,7 @@ public class BoardTests {
         board.playMove(3, 4); // Play a valid move and then undo it
         Assertions.assertEquals(1, board.getPiece(3, 4)); // Check that the move was played
         board.undo(); // Undo the move
+
         // Verify that the board reverted to the initial state
         Assertions.assertEquals(0, board.getPiece(3, 4)); // The spot should be empty
         Assertions.assertEquals(-1, board.getPiece(4, 4)); // White piece restored

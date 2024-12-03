@@ -30,6 +30,15 @@ class EngineTests {
     }
 
     @Test
+    void minimaxTurnIsNotEqualToMaximizingColorTest() {
+        Board board = new Board();
+        int scoreDepth1 = Engine.minimax(board, 1, -1);
+        int scoreDepth2 = Engine.minimax(board, 2, board.getTurn());
+
+        Assertions.assertNotEquals(scoreDepth1, scoreDepth2);  // Ensure different scores at different depths
+    }
+
+    @Test
     void bestMoveTest() {
         Board board = new Board();
         Integer[] move = Engine.bestMove(board);

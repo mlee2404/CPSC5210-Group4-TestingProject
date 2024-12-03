@@ -9,8 +9,8 @@ import src.othello.Tile;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 class TileTests {
 
@@ -20,6 +20,20 @@ class TileTests {
     void setUp() {
         GUI gui = new GUI();  // Create a GUI instance to pass as parent
         tile = new Tile(gui, 2, 3);  // Initialize Tile at row 2, col 3
+    }
+
+    @Test
+    void onClickTest() {
+        int count = 0;
+
+        // Simulate a button click
+        for (ActionListener listener : tile.getActionListeners()) {
+            listener.actionPerformed(new ActionEvent(tile, ActionEvent.ACTION_PERFORMED, ""));
+            count++;
+        }
+
+        // Assert that onClick was called once
+        Assertions.assertEquals(1, count);
     }
 
     @Test
