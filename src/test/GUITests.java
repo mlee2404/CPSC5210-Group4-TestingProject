@@ -20,7 +20,7 @@ class GUITests {
                 String concatenated = Integer.toString(i) + j;
                 int result = Integer.parseInt(concatenated);
                 JButton tile = (JButton) buttonPanel.getComponent(result);
-                if (tile.getIcon() != null) {  // Assuming 0 represents an empty tile
+                if (tile.getIcon() != null) {
                     pieceCount++;
                 }
             }
