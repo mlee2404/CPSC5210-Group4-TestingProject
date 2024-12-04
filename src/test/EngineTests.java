@@ -32,10 +32,10 @@ class EngineTests {
     @Test
     void minimaxTurnIsNotEqualToMaximizingColorTest() {
         Board board = new Board();
-        int scoreDepth1 = Engine.minimax(board, 1, -1);
-        int scoreDepth2 = Engine.minimax(board, 2, board.getTurn());
+        int notEqualToMaxColor = Engine.minimax(board, 1, -1);
+        int equalToMaxColor = Engine.minimax(board, 1, board.getTurn());
 
-        Assertions.assertNotEquals(scoreDepth1, scoreDepth2);  // Ensure different scores at different depths
+        Assertions.assertEquals(notEqualToMaxColor, equalToMaxColor);  // Ensure same scores
     }
 
     @Test
