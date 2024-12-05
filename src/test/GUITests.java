@@ -106,7 +106,7 @@ class GUITests {
         newAIItem.doClick();  // Simulate clicking on the new AI menu item
 
         gui.onClick(6, 5); // Valid move
-        Thread.sleep(400); // Allow AI to move
+        Thread.sleep(500); // Allow AI to move
 
         JPanel buttonPanel = (JPanel) gui.getContentPane().getComponent(0);
         JButton tile = (JButton) buttonPanel.getComponent(65);  // Row 6, Column 5 -> 65th index
