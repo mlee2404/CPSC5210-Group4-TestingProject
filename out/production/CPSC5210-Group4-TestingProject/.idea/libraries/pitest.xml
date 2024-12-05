@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="pitest">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/pitest-1.17.2/pitest" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/pitest-1.17.2/pitest/src/main/java" />
+      <root url="file://$USER_HOME$/Downloads/pitest-1.17.2/pitest/src/test/java" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Downloads/pitest-1.17.2/pitest" recursive="false" />
+  </library>
+</component>
