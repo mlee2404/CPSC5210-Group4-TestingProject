@@ -275,7 +275,6 @@ public class BoardTests {
         board.playMove(3, 4); // Valid move
         Assertions.assertEquals(1, board.getPiece(3, 4)); // Black piece placed
         Assertions.assertEquals(1, board.getPiece(4, 4)); // White piece flipped
-
     }
 
     @Test

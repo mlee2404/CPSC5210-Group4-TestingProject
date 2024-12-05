@@ -65,6 +65,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="pitest" level="project" />
   </component>
 </module>
