@@ -240,13 +240,13 @@ public class Board{
                         int newCol = j + offset[1];
                         // Continue in the direction of the offset until a tile of the same color is reached.
                         while (inBounds(newRow, newCol) && grid[newRow][newCol] == -turn){
-                            newRow += offset[0];
+                            newRow -= offset[0];
                             newCol += offset[1];
                         }
                         if (inBounds(newRow, newCol) && grid[newRow][newCol] == turn){
                             if ((newRow == i && Math.abs(newCol - j) > 1) || // In the same row?
                                 (newCol == j && Math.abs(newRow - i) > 1) || // In the same col?
-                                (Math.abs(newCol - j) > 1 && Math.abs(newRow - i) > 1)){ //Diagonal?
+                                (Math.abs(newCol - j) > 1 && Math.abs(newRow + i) > 1)){ //Diagonal?
                                     legalMoves.add(new Integer[]{i, j});
                                     break;  // Now consider the next square.
                             } 
